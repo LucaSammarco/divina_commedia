@@ -6,8 +6,8 @@ import { createInertiaApp } from '@inertiajs/inertia-vue3';
 
 // Configura l'applicazione Inertia
 createInertiaApp({
-  // Risolvi le pagine in base al nome (presumibilmente le tue pagine sono nella cartella "Pages")
-  resolve: (name) => require(`./Pages/${name}`),
+  // Usa l'import dinamico per caricare i componenti Vue
+  resolve: (name) => import(`./Pages/${name}.vue`),
 
   // Setup dell'app Vue con il plugin di Inertia
   setup({ el, App, props, plugin }) {
@@ -17,6 +17,3 @@ createInertiaApp({
       .mount(el);
   },
 });
-
-// Inizializza InertiaProgress per mostrare una barra di caricamento quando si naviga tra le pagine
-InertiaProgress.init();

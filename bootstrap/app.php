@@ -41,6 +41,16 @@ $app->singleton(
     App\Exceptions\Handler::class
 );
 
+// Aggiunta del Middleware di Inertia
+$app->singleton(Illuminate\Contracts\Http\Kernel::class, function ($app) {
+    $kernel = $app->make(App\Http\Kernel::class);
+
+    // Aggiunge il middleware di Inertia alle richieste web
+    $kernel->pushMiddleware(App\Http\Middleware\HandleInertiaRequests::class);
+
+    return $kernel;
+});
+
 /*
 |--------------------------------------------------------------------------
 | Return The Application
