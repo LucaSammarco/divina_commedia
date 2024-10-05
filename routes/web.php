@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\HomeController as GuestHomeController;
+use App\Http\Controllers\CanticaController;
+use App\Http\Controllers\CantoController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -21,13 +23,20 @@ Route::get('/', function () {
     return Inertia::render('Home');
 })->name('home');
 
-// // Rotte di autenticazione (login, registrazione, ecc.)
+// Rotte per visualizzare tutte le cantiche e una cantica specifica
+Route::get('/cantiche', [CanticaController::class, 'index'])->name('cantiche.index');
+Route::get('/cantica/{id}', [CanticaController::class, 'show'])->name('cantiche.show');
+
+// Rotta per visualizzare un canto specifico
+Route::get('/canto/{id}', [CantoController::class, 'show'])->name('canti.show');
+
+// Rotte di autenticazione (login, registrazione, ecc.)
 // Auth::routes();
 
-// // Rotta per la dashboard degli utenti autenticati
+// Rotta per la dashboard degli utenti autenticati
 // Route::get('/home', [GuestHomeController::class, 'index'])->name('dashboard');
 
-// // Rotte per l'area admin, protette tramite middleware 'auth'
+// Rotte per l'area admin, protette tramite middleware 'auth'
 // Route::middleware('auth')->name('admin.')->prefix('admin/')->group(function () {
 //     Route::get('home', [AdminHomeController::class, 'index'])->name('home');
 // });

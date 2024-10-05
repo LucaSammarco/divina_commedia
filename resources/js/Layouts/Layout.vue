@@ -1,4 +1,3 @@
-<!-- Layout.vue: Layout di base condiviso -->
 <script>
 import Header from '@/Components/Header.vue';
 
@@ -7,12 +6,18 @@ export default {
   components: {
     Header,
   },
+  computed: {
+    cantiche() {
+      return this.$page.props.cantiche || [];
+    },
+  },
 };
 </script>
 
 <template>
   <div>
-    <Header />
+    <!-- Passa le cantiche all'Header -->
+    <Header :cantiche="cantiche" />
     <main>
       <slot></slot>
     </main>
@@ -21,6 +26,11 @@ export default {
     </footer>
   </div>
 </template>
+
+<style scoped>
+/* Styles */
+</style>
+
 
 <style scoped>
 header {

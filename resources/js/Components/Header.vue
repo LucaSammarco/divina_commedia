@@ -1,7 +1,25 @@
 <!-- Header.vue: Header come componente riutilizzabile -->
 <script>
+import { Link } from '@inertiajs/inertia-vue3';
+
 export default {
   name: 'Header',
+  components: {
+    Link, // Importa e registra il componente Link
+  },
+  props: {
+    cantiche: Array, // Ricevi le cantiche come prop dal controller
+  },
+  mounted() {
+    // Log per verificare se le cantiche vengono passate correttamente
+    console.log('Cantiche ricevute dal controller:', this.cantiche);
+  },
+  watch: {
+    cantiche(newVal) {
+      // Log per verificare eventuali cambiamenti nelle cantiche
+      console.log('Cantiche aggiornate:', newVal);
+    },
+  },
 };
 </script>
 
@@ -9,10 +27,10 @@ export default {
   <header>
     <nav>
       <ul>
-        <li><inertia-link href="/">Home</inertia-link></li>
-        <li><inertia-link href="/cantica/inferno">Inferno</inertia-link></li>
-        <li><inertia-link href="/cantica/purgatorio">Purgatorio</inertia-link></li>
-        <li><inertia-link href="/cantica/paradiso">Paradiso</inertia-link></li>
+        <li><Link href="/">Home</Link></li>
+        <li v-for="cantica in cantiche" :key="cantica.id">
+          <Link :href="`/cantiche/${cantica.id}`">{{ cantica.nome }}</Link>
+        </li>
       </ul>
     </nav>
   </header>
