@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\HomeController as GuestHomeController;
 use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,18 +16,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Rotta per la home page: renderizza la pagina Home.vue con Inertia
 Route::get('/', function () {
-    return view('welcome');
-});
+    return Inertia::render('Home');
+})->name('home');
 
-Auth::routes();
+// // Rotte di autenticazione (login, registrazione, ecc.)
+// Auth::routes();
 
-Route::get('/home', [GuestHomeController::class, 'index'])->name('home');
+// // Rotta per la dashboard degli utenti autenticati
+// Route::get('/home', [GuestHomeController::class, 'index'])->name('dashboard');
 
-Route::middleware('auth')->name('admin.')->prefix('admin/')->group(
-    function () {
-        // Route::get('home', [AdminHomeController::class, 'index'])->name('home');
-});
-
-
-// Route::get('admin/admin-home', [AdminHomeController::class, 'index'])->name('admin.home')->middleware('auth');
+// // Rotte per l'area admin, protette tramite middleware 'auth'
+// Route::middleware('auth')->name('admin.')->prefix('admin/')->group(function () {
+//     Route::get('home', [AdminHomeController::class, 'index'])->name('home');
+// });

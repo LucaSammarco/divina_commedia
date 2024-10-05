@@ -7,23 +7,25 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <!-- Il token CSRF protegge l'applicazione contro attacchi Cross-Site Request Forgery -->
+
+    <!-- Title -->
+    <title inertia>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @vite(['resources/js/app.js'])
+    @inertiaHead
 </head>
 <body>
-    <div id="app">
-
-        @include('layouts.partials.header')
-
-        <main class="py-4">
-            @yield('content')
-        </main>
+    <div id="app" data-page="{{ json_encode($page) }}">
+        <!-- Questo div è il punto di montaggio per l'app Vue e Inertia -->
+        @inertia
     </div>
+
+    <!-- Footer opzionale -->
 </body>
 </html>
