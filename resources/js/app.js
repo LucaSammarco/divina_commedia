@@ -1,9 +1,12 @@
-import './bootstrap';
+// resources/js/app.js
 
-// Importa funzioni e pacchetti necessari da Vue e Inertia
+import './bootstrap';
 import { createApp, h } from 'vue';
 import { createInertiaApp } from '@inertiajs/inertia-vue3';
 import '../sass/app.scss';
+
+// Importa il plugin `imagePlugin`
+import imagePlugin from './plugins/imagePlugin';
 
 // Mappa statica dei componenti Vue
 const pages = {
@@ -20,17 +23,18 @@ createInertiaApp({
   async resolve(name) {
     const page = pages[name];
     if (page) {
-      return (await page()).default;  // Attendi che il componente venga risolto
+      return (await page()).default; // Attendi che il componente venga risolto
     } else {
-      return (await pages['Home']()).default;  // Fallback alla home
+      return (await pages['Home']()).default; // Fallback alla home
     }
   },
 
   // Setup dell'app Vue con il plugin di Inertia
   setup({ el, App, props, plugin }) {
-    // Crea l'app Vue e monta l'elemento principale nella pagina
+    // Crea l'app Vue e registra il plugin `imagePlugin`, poi monta l'elemento principale
     createApp({ render: () => h(App, props) })
-      .use(plugin)
+      .use(plugin)       // Registra il plugin di Inertia
+      .use(imagePlugin)  // Registra il plugin per le immagini
       .mount(el);
   },
 });

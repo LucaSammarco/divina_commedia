@@ -1,17 +1,20 @@
 <!-- Home.vue: Pagina Home -->
 <script>
 import Layout from '@/Layouts/Layout.vue';
+import Jumbo from '@/Components/Jumbo.vue';
 
 export default {
   name: 'Home',
   components: {
     Layout,
+    Jumbo,
   },
 };
 </script>
 
 <template>
   <Layout>
+    <Jumbo />
     <div>
       <h1>Benvenuti nella Divina Commedia</h1>
       <p>Esplora l'Inferno, il Purgatorio e il Paradiso attraverso i canti di Dante.</p>

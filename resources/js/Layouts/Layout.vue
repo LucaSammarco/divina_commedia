@@ -1,10 +1,12 @@
 <script>
 import Header from '@/Components/Header.vue';
+import Jumbo from '@/Components/Jumbo.vue';
 
 export default {
   name: 'Layout',
   components: {
     Header,
+    Jumbo
   },
   computed: {
     cantiche() {
@@ -18,6 +20,7 @@ export default {
   <div>
     <!-- Passa le cantiche all'Header -->
     <Header :cantiche="cantiche" />
+    <!-- <Jumbo /> --> <!-- Rimuovi il componente Jumbo -->
     <main>
       <slot></slot>
     </main>
@@ -27,32 +30,7 @@ export default {
   </div>
 </template>
 
-<style scoped>
-/* Styles */
-</style>
-
 
 <style scoped>
-header {
-  background-color: #333;
-  color: #fff;
-  padding: 1rem;
-}
-nav ul {
-  list-style-type: none;
-  display: flex;
-  gap: 1rem;
-}
-nav ul li {
-  cursor: pointer;
-}
-main {
-  padding: 2rem;
-}
-footer {
-  text-align: center;
-  margin-top: 2rem;
-  padding: 1rem;
-  background-color: #f1f1f1;
-}
+
 </style>
