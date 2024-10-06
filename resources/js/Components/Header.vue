@@ -36,20 +36,20 @@ export default {
 
 
 <style scoped>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
+
+
 
 header {
-    background: #55BAB9;
+    background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgba(255,255,255,1) 86%, rgba(210,180,16,0.9724264705882353) 99%);
     width: 100%;
     padding: 20px 0; /* Padding per l'header, così non occupa tutto lo schermo */
     display: flex;
     align-items: center;
     justify-content: center;
+    /* font-family: 'Cormorant', serif;
+    font-weight: bold; */
+
     .logo {
         width: 20px;
         height: 20px;
@@ -82,7 +82,7 @@ nav ul li a {
     text-decoration: none; /* Rimuove la sottolineatura dai link */
     font-size: 18px;
     font-weight: 500;
-    color: #777;
+    color: #000000;
 }
 
 nav ul li::after {
