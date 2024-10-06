@@ -1,8 +1,13 @@
 <script>
+// Importa il layout
+import Layout from '@/Layouts/Layout.vue';
+
 export default {
   props: {
     canto: Object, // Riceve il canto con i versi come prop
   },
+  // Definisci il layout come proprietà del componente
+  layout: Layout,
 };
 </script>
 
@@ -20,12 +25,13 @@ export default {
   </template>
 
 
-<style scoped>
-h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-p {
-  font-size: 1.2rem;
-}
-</style>
+
+  <style scoped>
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  p {
+    font-size: 1.2rem;
+  }
+  </style>

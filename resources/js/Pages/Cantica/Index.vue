@@ -1,5 +1,6 @@
 <script>
 import { Link } from '@inertiajs/inertia-vue3'; // Importa il componente Link da Inertia
+import Layout from '@/Layouts/Layout.vue'; // Importa il layout comune
 
 export default {
   name: 'CanticaList',
@@ -9,6 +10,7 @@ export default {
   props: {
     cantiche: Array, // Riceve la lista delle cantiche come prop
   },
+  layout: Layout, // Specifica che questa pagina utilizza il layout globale
 };
 </script>
 

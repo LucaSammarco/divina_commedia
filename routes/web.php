@@ -25,7 +25,8 @@ Route::get('/', function () {
 
 // Rotte per visualizzare tutte le cantiche e una cantica specifica
 Route::get('/cantiche', [CanticaController::class, 'index'])->name('cantiche.index');
-Route::get('/cantica/{id}', [CanticaController::class, 'show'])->name('cantiche.show');
+Route::get('/cantiche/{id}', [CanticaController::class, 'show'])->name('cantiche.show');
+
 
 // Rotta per visualizzare un canto specifico
 Route::get('/canto/{id}', [CantoController::class, 'show'])->name('canti.show');

@@ -17,6 +17,6 @@ class Canto extends Model
     // Un canto ha molti versi
     public function versi()
     {
-        return $this->hasMany(Verso::class, 'id_canto'); // Relazione con il modello Verso
+        return $this->hasMany(Verso::class, 'id_canto'); // Relazione con il modello Verso, specificando 'id_canto' come chiave esterna
     }
 }
