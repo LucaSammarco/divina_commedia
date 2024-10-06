@@ -15,10 +15,7 @@ export default {
 <template>
   <Layout>
     <Jumbo />
-    <div>
-      <h1>Benvenuti nella Divina Commedia</h1>
-      <p>Esplora l'Inferno, il Purgatorio e il Paradiso attraverso i canti di Dante.</p>
-    </div>
+
   </Layout>
 </template>
 
