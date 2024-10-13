@@ -13,17 +13,14 @@ export default {
 </script>
 
 <template>
-  <header>
-    <nav>
-      <ul>
-        <!-- <li>
-          <Link href="/">
-            <!-- Usa il metodo globale $getImageUrl per ottenere il percorso dell'immagine -->
-            <!-- <img :src="$getImageUrl('logo.png')" alt="Logo Home" class="logo"/>
-          </Link>
-        </li> -->
-        <li v-for="cantica in cantiche" :key="cantica.id">
-          <Link :href="`/cantiche/${cantica.id}`">{{ cantica.nome }}</Link>
+  <header class="bg-light py-3">
+    <nav class="container">
+      <ul class="d-flex justify-content-center align-items-center list-unstyled mb-0">
+        <li class="me-4">
+          <Link href="/" class="text-decoration-none text-dark fw-bold">Home</Link>
+        </li>
+        <li v-for="cantica in cantiche" :key="cantica.id" class="me-3">
+          <Link :href="`/cantiche/${cantica.id}`" class="text-decoration-none text-dark">{{ cantica.nome }}</Link>
         </li>
       </ul>
     </nav>
@@ -31,13 +28,7 @@ export default {
 </template>
 
 <style scoped>
-/* Stili rimangono invariati */
-</style>
-
-
-<style scoped>
-
-
-
-
+li:last-child {
+  margin-right: 0;
+}
 </style>

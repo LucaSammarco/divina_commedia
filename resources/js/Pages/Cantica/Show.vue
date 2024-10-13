@@ -14,7 +14,7 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div class="d-flex flex-column align-items-center">
     <h1>{{ cantica.nome }}</h1>
     <h2>Elenco dei Canti</h2>
     <ul v-if="cantica.canti && cantica.canti.length">

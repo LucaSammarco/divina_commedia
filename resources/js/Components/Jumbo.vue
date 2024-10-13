@@ -15,7 +15,7 @@ export default {
 <template>
     <div class="jumbotron">
       <!-- Usa direttamente il plugin $getImageUrl() per il binding dell'immagine -->
-      <img :src="$getImageUrl('Jumbo/Domenico_di_Michelino_-_Dante_Alighieri_holding_his_poem_the_Divine_Comedy_Near_by_him_hell_and_the_city_-_(MeisterDrucke-996509).jpg')"
+      <img :src="$getImageUrl('Jumbo/02.-inferno-schema.png')"
            alt="Dante Alighieri e la Divina Commedia"
            class="jumbo-image" />
       <div class="content">
@@ -26,25 +26,27 @@ export default {
 
   <style scoped>
   .jumbotron {
-    position: relative;
-    height: 80vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    overflow: hidden; /* Nasconde l'eventuale parte di immagine eccedente */
-  }
+  position: relative;
+  height: calc(100vh - 0px); /* Altezza del Jumbotron meno l'altezza dell'header */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
 
-  .jumbo-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Assicura che l'immagine riempia tutto lo spazio del Jumbotron mantenendo le proporzioni */
-    z-index: -1; /* Posiziona l'immagine dietro il contenuto */
-  }
+.jumbo-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain ;
+  object-position: center;
+}
+
+
 
   .content {
     position: relative;

@@ -24,9 +24,7 @@ export default {
     <main>
       <slot></slot>
     </main>
-    <footer>
-      <p>Divina Commedia - Un progetto di studio</p>
-    </footer>
+
   </div>
 </template>
 
